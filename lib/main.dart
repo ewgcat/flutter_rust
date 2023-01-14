@@ -35,7 +35,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String result = "";
-
+  final RustHttp rustHttp= RustHttpImpl(Platform.isAndroid ? DynamicLibrary.open('librust_http.so') : DynamicLibrary
+      .executable());
 
   @override
   void initState() {
@@ -44,8 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> flutterRustRequest() async {
     try {
-      final RustHttp rustHttp= RustHttpImpl(Platform.isAndroid ? DynamicLibrary.open('librust_http.so') : DynamicLibrary
-          .executable());
       Ip ip = await rustHttp.getItem();
       result=ip.origin;
       setState(() {
