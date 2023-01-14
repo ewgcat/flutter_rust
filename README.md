@@ -5,9 +5,10 @@
 - Rust安装：https://rustup.rs/
 
 ### 2.配置ndk环境
+ndkVersion "22.1.7171670"才能正常运行
 - 必须要安装cargo-ndk ：它能够将代码编译到适合的 JNI 而不需要额外的配置
 ```
-https://github.com/bbqsrc/cargo-ndk
+cargo install cargo-ndk --version 2.6.0
 ```
 - 添加cargo的android编译工具
 ```
